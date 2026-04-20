@@ -45,7 +45,7 @@ const App = () => {
     }
     const onDiseaseChange = ( disease ) => {
         setSelectedDisease(disease);
-        // update attributes automatically
+        // In bonus question: update attributes automatically
         setFirstAttr(disease);
         setSecondAttr("null");
         setThirdAttr("null");

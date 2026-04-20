@@ -56,8 +56,14 @@ export function TreeMap(props) {
                             <g key={i}>
                                 <rect x={d.x0} y={d.y0} width={width} height={height} fill={color(d.data.name)} stroke="#fff" strokeWidth={isSelected ? 4 : 1.5} opacity={isSelected ? 1 : 0.9} style={{ cursor: "pointer", transition: "all 0.2s ease" }}
                                     onClick={() => setSelectedCell && setSelectedCell(d.data.name)}
-                                    onMouseOver={e => (e.target.style.opacity = 1)}
-                                    onMouseOut={e => (e.target.style.opacity = isSelected ? 1 : 0.9)}
+                                    onMouseOver={(e) => {
+                                        e.target.style.opacity = 1;
+                                        e.target.style.strokeWidth = "4px";
+                                        }}
+                                    onMouseLeave={(e) => {
+                                        e.target.style.opacity = isSelected ? 1 : 0.92;
+                                        e.target.style.strokeWidth = isSelected ? "5px" : "2px";
+                                    }}
                                     />
                             <TreeMapText x={d.x0} y={d.y0} width={width} height={height} name={d.data.name} value={d.data.value} total={total} attr={d.data.attr} />
                             </g>
