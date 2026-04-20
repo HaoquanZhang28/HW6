@@ -45,6 +45,10 @@ const App = () => {
     }
     const onDiseaseChange = ( disease ) => {
         setSelectedDisease(disease);
+        // update attributes automatically
+        setFirstAttr(disease);
+        setSecondAttr("null");
+        setThirdAttr("null");
     }
     const data = rawData.filter(d => d[selectedDisease] === "1");
     // console.log("data:", data);
@@ -157,7 +161,7 @@ const App = () => {
             </Col>
             <Col lg={7} >
               <h4>{`Why people get ${selectedDisease}? - A treemap explanation`}</h4>
-               <TreeMap margin={margin} svg_width={WIDTH} svg_height={HEIGHT} tree={tree} selectedCell={selectedCell} setSelectedCell={setSelectedCell}/>
+               <TreeMap margin={margin} svg_width={WIDTH} svg_height={HEIGHT} tree={tree} selectedCell={selectedCell} setSelectedCell={setSelectedCell} />
             </Col>
         </Row>
         <Row className={"justify-content-md-left"}>
